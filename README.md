@@ -26,12 +26,12 @@ npm start
 
 This will start the app at http://localhost:5173.
 
-Any changes made to files in the /theme directory will trigger automatic updates in the browser.
+Any changes made to files in the `/theme` directory will trigger automatic updates in the browser.
 
 A theme consists of at least two files:
 
-    - `/theme/screen.css` — defines the visual styles
-    - `/theme/theme.json` — specifies the theme name and the resolution of the beamer in use
+    - /theme/screen.css — defines the visual styles
+    - /theme/theme.json — specifies the theme name and the resolution of the beamer in use
 
 You can also include custom assets, such as fonts and images, as long as they can be referenced from the CSS file.
 
