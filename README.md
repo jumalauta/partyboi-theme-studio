@@ -1,6 +1,6 @@
 # Partyboi Theme Studio
 
-**Partyboi Theme Studio** is a development tool designed to help you create and customize info screen themes for [Partyboi](https://example.com).
+**Partyboi Theme Studio** is a development tool designed to help you create and customize info screen themes for [Partyboi](https://www.github.com/jumalauta/partyboi).
 
 ## 🚀 Getting Started
 
