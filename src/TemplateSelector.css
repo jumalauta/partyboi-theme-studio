@@ -1,0 +1,45 @@
+.template-selector {
+    display: flex;
+    flex-wrap: wrap;
+    /*gap: 2px;*/
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.template-selector li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    max-width: 300px;
+    height: 30px;
+
+    /*border-radius: 5px 5px 0 0;*/
+
+    border: 1px rgba(0, 0, 0, 0.3) solid;
+    border-bottom: none;
+
+    background: #191919;
+    color: #808080;
+}
+
+.template-selector li:hover {
+    background: #222;
+    color: #AAA;
+}
+
+.template-selector li.selected,
+.template-selector li.selected:hover {
+    background: #363636;
+    color: #CCCCCC;
+}
+
+.template-selector li a {
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    font-size: 80%;
+    padding: 8px 15px;
+}

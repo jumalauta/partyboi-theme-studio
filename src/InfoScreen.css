@@ -1,0 +1,15 @@
+.info-screen-container {
+    position: relative;
+    flex-grow: 1;
+}
+
+.info-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    border: none;
+    background: white;
+
+    /*transform: scale(75%);*/
+}
