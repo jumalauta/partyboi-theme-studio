@@ -5,11 +5,9 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "update-templates:local": "curl http://127.0.0.1:8123/screen/examples > src/templates.json"
+    "build": "rm -f screen.zip && zip -r screen.zip theme/[!._]*",
+    "update-templates:local": "curl http://127.0.0.1:8123/screen/examples | jq . > src/templates.json",
+    "update-templates": "curl https://sandbox.partyboi.app/screen/examples | jq . > src/templates.json"
   },
   "dependencies": {
     "react": "^19.1.0",
