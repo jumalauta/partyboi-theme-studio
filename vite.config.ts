@@ -24,15 +24,15 @@ export default defineConfig({
     resolve: {
         alias: [
             {
-                find: /^\/assets\/screen\/.+\/screen.js$/,
+                find: /^\/assets\/screen\/screen.js$/,
                 replacement: (_match) => {
                     return path.resolve(__dirname, 'src', `screenMock.ts`);
                 }
             },
             {
-                find: /^\/assets\/screen\/(.+)\/(.+)$/,
-                replacement: (_match, p1, p2) => {
-                    return path.resolve(__dirname, 'theme', p2);
+                find: /^\/assets\/screen\/(.+)$/,
+                replacement: (_match, p1) => {
+                    return path.resolve(__dirname, 'theme', p1);
                 }
             }
         ]
