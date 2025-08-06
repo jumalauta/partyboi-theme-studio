@@ -35,3 +35,12 @@ A theme consists of at least two files:
 
 You can also include custom assets, such as fonts and images, as long as they can be referenced from the CSS file.
 
+### 4. Deploy
+
+To create a theme package, run:
+
+```bash
+npm run build
+```
+
+Then, log in to your Partyboi instance as an admin, open the Assets view, and upload the generated `screen.zip` file.
