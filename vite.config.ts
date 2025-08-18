@@ -11,7 +11,7 @@ export default defineConfig({
             configureServer(server) {
                 server.watcher.add(path.resolve(__dirname, 'theme'));
                 server.watcher.on('change', (file) => {
-                    if (file.endsWith('.css')) {
+                    if (file.endsWith('.css') || file.endsWith('theme.json')) {
                         server.ws.send({
                             type: 'full-reload',
                             path: '*'

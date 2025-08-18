@@ -1,5 +1,5 @@
 import "./InfoScreen.css"
-import {useRef, useEffect, useState, type CSSProperties} from "react";
+import {useRef, useEffect, useState, type CSSProperties, useMemo} from "react";
 import templates from "./templates.json";
 
 export type InfoScreenProps = {
@@ -10,6 +10,7 @@ type ThemeConfig = {
     name: string,
     width: number,
     height: number,
+    injectBody?: string,
 }
 
 const defaultTheme: ThemeConfig = {
@@ -22,7 +23,7 @@ export const InfoScreen = (props: InfoScreenProps) => {
     const [themeConfig, setThemeConfig] = useState(defaultTheme)
 
     useEffect(() => {
-        fetch("/assets/screen/custom/theme.json")
+        fetch("/assets/screen/theme.json")
             .then(res => res.json())
             .then(setThemeConfig)
     }, [])
@@ -62,6 +63,14 @@ export const InfoScreen = (props: InfoScreenProps) => {
         return () => removeEventListener("resize", resize);
     }, [themeConfig])
 
+    const content = useMemo(() =>
+      templates[0]!.content.replace(
+        /<body([^>]*)>/i,
+        `<body$1>${themeConfig.injectBody || ''}`
+      ), 
+      [themeConfig]
+    )
+
     return (
         <div
             className="info-screen-container"
@@ -73,7 +82,7 @@ export const InfoScreen = (props: InfoScreenProps) => {
                 width={themeConfig.width}
                 height={themeConfig.height}
                 className={className}
-                srcDoc={templates[0]!.content}
+                srcDoc={content}
             />
         </div>
     )
