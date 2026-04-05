@@ -1,46 +1,69 @@
 # Partyboi Theme Studio
 
-**Partyboi Theme Studio** is a development tool designed to help you create and customize info screen themes for [Partyboi](https://www.github.com/jumalauta/partyboi).
+A development tool for creating and previewing info screen themes for [Partyboi](https://www.github.com/jumalauta/partyboi). Edit CSS and assets in the `theme/` directory and see changes live in an iframe-based preview.
 
-## 🚀 Getting Started
+## Getting Started
 
-### 1. Prerequisites
+### Prerequisites
 
 Make sure you have [Node.js](https://nodejs.org/en) installed on your system.
 
-### 2. Install Dependencies
-
-Navigate to the project directory in your terminal and run:
+### Install and Run
 
 ```bash
 npm install
-```
-
-### 3. Start the Development Server
-
-Launch the dev server with:
-
-```bash
 npm start
 ```
 
-This will start the app at http://localhost:5173.
+This starts the dev server at http://localhost:5173. Any changes to files in the `theme/` directory will trigger automatic updates in the browser.
 
-Any changes made to files in the `/theme` directory will trigger automatic updates in the browser.
+## Theme Structure
 
 A theme consists of at least two files:
 
-    - /theme/screen.css — defines the visual styles
-    - /theme/theme.json — specifies the theme name and the resolution of the beamer in use
+- `theme/screen.css` — defines the visual styles
+- `theme/theme.json` — theme metadata (see below)
 
-You can also include custom assets, such as fonts and images, as long as they can be referenced from the CSS file.
+You can also include custom assets such as fonts and images, as long as they are referenced from the CSS file.
 
-### 4. Deploy
+### theme.json
 
-To create a theme package, run:
+| Field | Description |
+|-------|-------------|
+| `name` | Theme display name |
+| `width` | Screen width in pixels (e.g. `1920`) |
+| `height` | Screen height in pixels (e.g. `1080`) |
+| `injectBody` | Optional HTML string injected at the beginning of the `<body>` element |
+
+### Slide Types
+
+The info screen rotates through different slide types. Your CSS should style the following:
+
+- **TextSlide** — heading + paragraph text
+- **ListSlide** — heading + bulleted lists
+- **ImageSlide** — full-screen background image
+- **QrCodeSlide** — QR code + description in columns
+- **ScheduleSlide** — event schedule table
+- **CompoSlide** — competition entry/status display
+- **CompoEntrySlide** — detailed competition entry with author info
+
+Use the template selector in the sidebar to preview each type while developing.
+
+## Updating Templates
+
+To populate the preview with real slide data from a Partyboi instance:
+
+```bash
+npm run update-templates          # from sandbox.partyboi.app
+npm run update-templates:local    # from localhost:8123
+```
+
+## Deploying
+
+Build the theme package:
 
 ```bash
 npm run build
 ```
 
-Then, log in to your Partyboi instance as an admin, open the Assets view, and upload the generated `screen.zip` file.
+This creates a `screen.zip` file in the project root. Log in to your Partyboi instance as an admin, open the Assets view, and upload it.
