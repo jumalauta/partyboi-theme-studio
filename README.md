@@ -31,8 +31,8 @@ You can also include custom assets such as fonts and images, as long as they are
 | Field | Description |
 |-------|-------------|
 | `name` | Theme display name |
-| `width` | Screen width in pixels (e.g. `1920`) |
-| `height` | Screen height in pixels (e.g. `1080`) |
+| `width` | Resolution width of the beamer/projector at the party venue (e.g. `1920`) |
+| `height` | Resolution height of the beamer/projector at the party venue (e.g. `1080`) |
 | `injectBody` | Optional HTML string injected at the beginning of the `<body>` element |
 
 ### Slide Types
